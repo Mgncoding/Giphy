@@ -1,0 +1,38 @@
+*::after, *::before {
+    box-sizing: border-box
+}
+div, form, input, button {
+    margin: 5px
+}
+ input {
+    float:right;
+    position: fixed;
+    left: 88%;
+    padding: 0
+}
+label {
+    clear: both;
+    position: fixed;
+    left: 78%;
+    padding: 5px;
+    color:white;
+    
+}
+h1 {
+    text-align: center;
+}
+#element-find {
+    margin:5px;
+    position: fixed;
+    top:22%;
+    padding: 5px
+}
+body {
+
+    background: url(thunder.png);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+

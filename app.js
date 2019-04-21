@@ -16,6 +16,8 @@ $.ajax({
 })
 //   data comes back from the API
 .then(function(response) {
+    // erasing the previous click of gif display
+    $('#gifsHere').empty()
     // to call the data from the giphy
     var results = response.data
     console.log(results)
@@ -38,7 +40,7 @@ $.ajax({
     var gifImage = $('<img>')
 
     // element that will display the rating of the Gifs
-    var paraOne = $('<p>').text("Rating: " + rating)
+    var paraOne = $('<p>').text("Rating: " + rating).css("color", "white")
 
         gifImage.attr("src", staticSrc)
         gifImage.addClass("elementGif")
@@ -48,7 +50,7 @@ $.ajax({
         // display info to HTML
         elementalDiv.append(paraOne)
         elementalDiv.append(gifImage)
-        $('#gifsHere').prepend(elementalDiv) 
+        $('#gifsHere').append(elementalDiv) 
   
 }
 })
@@ -67,6 +69,7 @@ function renderButtons() {
         //text for initial button
         gif.text(topics[i])
         $("#gif-button").append(gif)
+        
   }
 }
 
@@ -74,6 +77,10 @@ function renderButtons() {
 $("#element-find").on("click", function(event) {
     event.preventDefault()
     var topic = $("#element-place").val().trim()
+    // will prevent an empty block from appearing
+    if (topic == ""){
+        return false
+    }
     // placing new elements into array
     topics.push(topic)
     $('#element-place').val("")
